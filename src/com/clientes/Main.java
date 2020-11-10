@@ -89,6 +89,7 @@ public class Main {
             for (BeneficiosCovid19 beneficiosCovid19List2 : list2) {
                 if (beneficiosCovid19List1.getNombre().equals(beneficiosCovid19List2.getNombre())) {
                     existencia = true;
+                    break;
                 }
             }
             if (!existencia) {
