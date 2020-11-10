@@ -19,9 +19,9 @@ public class Main {
         imprimirLista(beneficiosCovid19List1);
         System.out.println("\nEmpresa 2 (lista 2): ");
         imprimirLista(beneficiosCovid19List2);
-        System.out.println("\nBeneficios que hay en empresa 1 que no hay en empresa2:");
+        System.out.println("\nBeneficios que hay en empresa 1 que no hay en empresa 2:");
         compararListas(beneficiosCovid19List1, beneficiosCovid19List2);
-        System.out.println("\nBeneficios que hay en empresa 2 que no hay en empresa1:");
+        System.out.println("\nBeneficios que hay en empresa 2 que no hay en empresa 1:");
         compararListas(beneficiosCovid19List2, beneficiosCovid19List1);
         mejoresBeneficios(beneficiosCovid19List1, beneficiosCovid19List2);
     }
