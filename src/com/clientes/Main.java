@@ -17,9 +17,13 @@ public class Main {
 
         System.out.println("Empresa 1 (lista 1): ");
         imprimirLista(beneficiosCovid19List1);
-        System.out.println("\nempresa 2 (lista 2): ");
+        System.out.println("\nEmpresa 2 (lista 2): ");
         imprimirLista(beneficiosCovid19List2);
+        System.out.println("\nBeneficios que hay en empresa 1 que no hay en empresa2:");
         compararListas(beneficiosCovid19List1, beneficiosCovid19List2);
+        System.out.println("\nBeneficios que hay en empresa 2 que no hay en empresa1:");
+        compararListas(beneficiosCovid19List2, beneficiosCovid19List1);
+        mejoresBeneficios(beneficiosCovid19List1, beneficiosCovid19List2);
     }
 
     //Implementa un metodo que te entregue un numero aletorio para el ide de los beneficios usar el wrapper de Integer
@@ -37,12 +41,13 @@ public class Main {
     private static String getNombreBeneficio(List<BeneficiosCovid19> beneficiosCovid19) {
         String[] nombresBeneficios = {"Beneficiados que perdieron su trabajo por COVID19",
                 "Beneficios para persona tercera edad dagnificados por COVID19",
-                "Beneficio para personas diagnosticadas con COVID19"};
+                "Beneficio para personas diagnosticadas con COVID19",
+                "Beneficio para personas con familiares que diagnosticaron con COVID19"};
         Random random = new Random();
-        String nombreBeneficio = nombresBeneficios[random.nextInt(3)];
+        String nombreBeneficio = nombresBeneficios[random.nextInt(4)];
         for (int i = 0; i < beneficiosCovid19.size(); i++) {
             if (beneficiosCovid19.get(i).getNombre().equals(nombreBeneficio)) {
-                nombreBeneficio = nombresBeneficios[random.nextInt(3)];
+                nombreBeneficio = nombresBeneficios[random.nextInt(4)];
                 i = -1;
             }
         }
@@ -79,6 +84,21 @@ public class Main {
     }
 
     private static void compararListas(ArrayList<BeneficiosCovid19> list1, ArrayList<BeneficiosCovid19> list2) {
+        for (BeneficiosCovid19 beneficiosCovid19List1 : list1) {
+            boolean existencia = false;
+            for (BeneficiosCovid19 beneficiosCovid19List2 : list2) {
+                if (beneficiosCovid19List1.getNombre().equals(beneficiosCovid19List2.getNombre())) {
+                    existencia = true;
+                }
+            }
+            if (!existencia) {
+                System.out.println(beneficiosCovid19List1.toString());
+            }
+        }
+    }
+
+    private static void mejoresBeneficios
+            (ArrayList<BeneficiosCovid19> list1, ArrayList<BeneficiosCovid19> list2) {
         ArrayList<BeneficiosCovid19> mejoresBeneficios = new ArrayList<>();
         ArrayList<BeneficiosCovid19> mejorBeneficio = new ArrayList<>();
 
